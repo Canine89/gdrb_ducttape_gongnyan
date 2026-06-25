@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "pretendard/dist/web/static/pretendard.css";
+
+@theme {
+  /* ChatGPT / OpenAI brand palette */
+  --color-gpt-green: #10a37f;
+  --color-gpt-green-light: #1a7f64;
+  --color-gpt-green-dark: #0d8a6a;
+  --color-gpt-green-muted: #74aa9c;
+  --color-gpt-tint: #ecfdf5;
+
+  /* Text & ink */
+  --color-ink: #0f0f0f;
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-muted: #fafafa;
+
+  /* Neutrals */
+  --color-border: #d1d5db;
+  --color-border-light: #e5e7eb;
+
+  --radius-sharp: 0;
+  --radius-soft: 0.75rem;
+
+  --shadow-card:
+    rgba(15, 15, 15, 0.1) 0 1px 3px 0,
+    rgba(15, 15, 15, 0.06) 0 4px 12px 0,
+    rgba(16, 163, 127, 0.08) 0 12px 28px -4px;
+
+  --shadow-card-hover:
+    rgba(15, 15, 15, 0.14) 0 2px 6px 0,
+    rgba(15, 15, 15, 0.1) 0 8px 20px 0,
+    rgba(16, 163, 127, 0.14) 0 18px 40px -4px;
+
+  --font-sans: "Pretendard", Arial, ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background-color: var(--color-surface-muted);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(16, 163, 127, 0.05) 0,
+    rgba(16, 163, 127, 0.05) 200px,
+    rgba(15, 15, 15, 0.035) 200px,
+    rgba(15, 15, 15, 0.035) 400px
+  );
+  background-attachment: fixed;
+}
+
+body {
+  background-color: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.surface-tinted-pattern {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(16, 163, 127, 0.03) 0,
+    rgba(16, 163, 127, 0.03) 200px,
+    rgba(15, 15, 15, 0.02) 200px,
+    rgba(15, 15, 15, 0.02) 400px
+  );
+}
+
+@media (prefers-contrast: more) {
+  html,
+  .surface-tinted-pattern {
+    background-image: none;
+  }
+}
+
+@keyframes block-gradient-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.94;
+    filter: brightness(1.06);
+  }
+}
+
+.block-gradient-animate {
+  animation: block-gradient-pulse 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block-gradient-animate {
+    animation: none;
+  }
+}
+
+@keyframes copy-success-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.copy-button-success {
+  animation: copy-success-pop 0.35s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-button-success {
+    animation: none;
+  }
+}
+
+@keyframes purchase-button-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -0.3rem;
+  }
+}
+
+.purchase-button-float {
+  animation: purchase-button-float 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .purchase-button-float {
+    animation: none;
+  }
+}
+
+@keyframes scroll-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal-ready {
+  animation: scroll-reveal-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.scroll-reveal-pending {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready,
+  .scroll-reveal-pending {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
