@@ -41,7 +41,7 @@ export function PromptExplorer({ initialRows }: Props) {
     return initialRows.filter((r) => {
       const matchChapter = !chapter || r.chapter === chapter;
       const hay =
-        `${r.chapter} ${r.number} ${r.title} ${r.order} ${r.prompt}`.toLowerCase();
+        `${r.chapter} ${r.number} ${r.title} ${r.prompt}`.toLowerCase();
       const matchQ = !q || hay.includes(q);
       return matchChapter && matchQ;
     });

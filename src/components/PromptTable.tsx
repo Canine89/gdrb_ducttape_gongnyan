@@ -17,10 +17,6 @@ type Props = {
 const rowInteractive =
   "group border-b border-border-light transition-colors duration-200 ease-out hover:bg-[linear-gradient(90deg,rgba(16,163,127,0.10),rgba(16,163,127,0.035)_42%,transparent)] focus-within:bg-[linear-gradient(90deg,rgba(16,163,127,0.10),rgba(16,163,127,0.035)_42%,transparent)]";
 
-function stepLabel(order: number) {
-  return order > 0 ? `${order}단계` : "단계 없음";
-}
-
 export function PromptTable({ rows }: Props) {
   const [open, setOpen] = useState<PromptRow | null>(null);
 
@@ -40,8 +36,7 @@ export function PromptTable({ rows }: Props) {
           <colgroup>
             <col className="w-[14%]" />
             <col className="w-[28%] lg:w-[30%]" />
-            <col className="w-[10%]" />
-            <col className="w-[38%] lg:w-[40%]" />
+            <col className="w-[46%] lg:w-[46%]" />
             <col className="w-[12%] lg:w-[10%]" />
           </colgroup>
           <thead>
@@ -51,9 +46,6 @@ export function PromptTable({ rows }: Props) {
               </th>
               <th className="pb-4 pr-4 text-sm font-bold uppercase tracking-wide text-ink">
                 활용 주제
-              </th>
-              <th className="pb-4 pr-4 text-sm font-bold uppercase tracking-wide text-ink">
-                단계
               </th>
               <th className="pb-4 pr-4 text-sm font-bold uppercase tracking-wide text-ink">
                 프롬프트
@@ -67,7 +59,7 @@ export function PromptTable({ rows }: Props) {
             {rows.length === 0 ? (
               <tr className="border-b border-border-light">
                 <td
-                  colSpan={5}
+                  colSpan={4}
                   className="py-12 text-center text-base font-semibold text-[hsl(0,0%,32%)]"
                 >
                   조건에 맞는 프롬프트가 없습니다.
@@ -84,9 +76,6 @@ export function PromptTable({ rows }: Props) {
                 </td>
                 <td className="py-4 pr-4 align-top text-ink">
                   {r.title}
-                </td>
-                <td className="whitespace-nowrap py-4 pr-4 align-top text-ink">
-                  {stepLabel(r.order)}
                 </td>
                 <td className="py-4 pr-4 align-top text-[hsl(0,0%,28%)] transition-colors duration-200 group-hover:text-ink group-focus-within:text-ink">
                   <p className="line-clamp-3 whitespace-pre-wrap">{preview(r.prompt)}</p>
@@ -126,9 +115,6 @@ export function PromptTable({ rows }: Props) {
               </p>
               <span className="border border-gpt-green/20 bg-gpt-tint/80 px-2 py-0.5 text-xs font-bold text-gpt-green-dark rounded-full">
                 {r.chapter}
-              </span>
-              <span className="border border-border-light bg-white/75 px-2 py-0.5 text-xs font-bold text-[hsl(0,0%,28%)] rounded-full">
-                {stepLabel(r.order)}
               </span>
             </div>
             <p className="mt-2 text-base font-bold leading-[1.45] text-ink">
@@ -177,7 +163,6 @@ export function PromptTable({ rows }: Props) {
               {open.chapter}
               {` · ${open.number}`}
               {` · ${open.title}`}
-              {open.order > 0 ? ` · ${open.order}단계` : ""}
             </p>
             <pre className="mt-5 whitespace-pre-wrap font-sans text-base leading-[1.5] text-ink sm:mt-6">
               {open.prompt}

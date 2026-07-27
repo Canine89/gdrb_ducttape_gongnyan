@@ -2,7 +2,8 @@ import Papa from "papaparse";
 import type { PromptRow } from "./types";
 
 const SHEET_ID = "1rUC3L1xwp1rIpLSDxj9Yulb6r9Fvg07SXtVki7EDDMQ";
-const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+const SHEET_GID = "609387363";
+const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
 
 export async function fetchPrompts(): Promise<PromptRow[]> {
   try {
