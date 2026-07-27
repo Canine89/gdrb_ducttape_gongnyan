@@ -7,7 +7,7 @@ import { BOOK_TITLE } from "@/lib/links";
 function CoverPlaceholder() {
   return (
     <div
-      className="flex aspect-[2/3] w-full flex-col justify-between rounded-[var(--radius-soft)] bg-gradient-to-br from-ink via-[#1a1a1a] to-gpt-green-dark p-6 text-white shadow-card"
+      className="flex aspect-[1024/1400] w-full flex-col justify-between rounded-[var(--radius-soft)] bg-gradient-to-br from-ink via-[#1a1a1a] to-gpt-green-dark p-6 text-white shadow-card"
       aria-hidden
     >
       <p className="text-xs font-bold uppercase tracking-[0.2em] text-gpt-green-muted">
@@ -42,8 +42,8 @@ export function CoverImage() {
     <Image
       src="/cover.jpeg"
       alt={`${BOOK_TITLE} 도서 표지`}
-      width={640}
-      height={960}
+      width={1024}
+      height={1400}
       priority
       className="h-auto w-full rounded-[var(--radius-soft)]"
       onError={() => setFailed(true)}

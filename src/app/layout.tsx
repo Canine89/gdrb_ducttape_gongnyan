@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/cover.jpeg",
-        width: 640,
-        height: 960,
+        width: 1024,
+        height: 1400,
         alt: `${BOOK_TITLE} 도서 표지`,
       },
     ],
